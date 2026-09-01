@@ -90,15 +90,26 @@
 
         .profile-image {
             flex-shrink: 0;
+            position: relative;
         }
 
-        .profile-image img {
+        .profile-image-circle {
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #ddd;
+            overflow: hidden;
+            border: 5px solid #ddd;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-image-circle canvas {
+            width: 100%;
+            height: 100%;
         }
 
         .profile-info {
@@ -364,7 +375,7 @@
                 gap: 40px;
             }
 
-            .profile-image img {
+            .profile-image-circle {
                 width: 250px;
                 height: 250px;
             }
@@ -425,7 +436,9 @@
     <!-- Profile Section -->
     <section class="profile-section" id="about">
         <div class="profile-image">
-            <img src="https://raw.githubusercontent.com/inhwaju-cell/myhome/main/profile.jpg" alt="주인화 프로필">
+            <div class="profile-image-circle">
+                <canvas id="profileCanvas"></canvas>
+            </div>
         </div>
         <div class="profile-info">
             <h2 class="profile-name"><span>주인화</span> (Inhwa Ju)</h2>
@@ -551,6 +564,103 @@
     </footer>
 
     <script>
+        // Draw professional profile avatar on canvas
+        function drawProfileAvatar() {
+            const canvas = document.getElementById('profileCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = 300;
+            canvas.height = 300;
+            
+            // Light background
+            ctx.fillStyle = '#a8c5d9';
+            ctx.fillRect(0, 0, 300, 300);
+            
+            // Head - rounded face shape
+            ctx.fillStyle = '#d4a574';
+            ctx.beginPath();
+            ctx.ellipse(150, 110, 60, 70, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Hair - dark
+            ctx.fillStyle = '#1a1a1a';
+            ctx.beginPath();
+            ctx.ellipse(150, 90, 62, 55, 0, 0, Math.PI);
+            ctx.fill();
+            
+            // Left side hair
+            ctx.beginPath();
+            ctx.ellipse(100, 110, 25, 60, 0.3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Right side hair
+            ctx.beginPath();
+            ctx.ellipse(200, 110, 25, 60, -0.3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Eyes
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.ellipse(130, 100, 8, 12, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.ellipse(170, 100, 8, 12, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Eye shine
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(132, 98, 3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(172, 98, 3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Nose
+            ctx.strokeStyle = '#d4a574';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(150, 105);
+            ctx.lineTo(150, 125);
+            ctx.stroke();
+            
+            // Mouth - smile
+            ctx.strokeStyle = '#d4a574';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(150, 135, 15, 0, Math.PI);
+            ctx.stroke();
+            
+            // Neck
+            ctx.fillStyle = '#d4a574';
+            ctx.fillRect(140, 170, 20, 20);
+            
+            // Shoulders - professional clothing
+            ctx.fillStyle = '#000';
+            ctx.beginPath();
+            ctx.ellipse(150, 200, 70, 40, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Shirt/Collar detail
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(120, 180);
+            ctx.lineTo(130, 200);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(180, 180);
+            ctx.lineTo(170, 200);
+            ctx.stroke();
+        }
+        
+        // Draw avatar when page loads
+        window.addEventListener('load', drawProfileAvatar);
+        
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
