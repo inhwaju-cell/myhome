@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inhwa Ju - Portfolio</title>
+    <title>주인화 - 포트폴리오</title>
     <style>
         * {
             margin: 0;
@@ -14,6 +14,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
+            color: #333;
         }
 
         /* AUTONO Header Section */
@@ -74,7 +75,7 @@
 
         .profile-info {
             flex: 1;
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .profile-name {
@@ -90,11 +91,11 @@
         }
 
         .profile-title {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.6;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .profile-badge {
@@ -114,13 +115,13 @@
             font-size: 0.95em;
         }
 
-        /* Services Section */
-        .services-section {
+        /* About Section */
+        .about-section {
             padding: 100px 40px;
             background: #f8f9fa;
         }
 
-        .services-title {
+        .about-title {
             text-align: center;
             font-size: 2.5em;
             font-weight: 300;
@@ -128,7 +129,39 @@
             letter-spacing: 1px;
         }
 
-        .services-grid {
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            line-height: 2;
+        }
+
+        .about-content p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .expertise-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
@@ -136,8 +169,8 @@
             margin: 0 auto;
         }
 
-        .service-card {
-            background: white;
+        .expertise-card {
+            background: #f8f9fa;
             padding: 40px 30px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -145,31 +178,31 @@
             border-left: 4px solid #667eea;
         }
 
-        .service-card:hover {
+        .expertise-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .service-card h3 {
+        .expertise-card h3 {
             font-size: 1.3em;
             margin-bottom: 15px;
             color: #333;
             font-weight: 600;
         }
 
-        .service-card p {
+        .expertise-card p {
             color: #666;
             line-height: 1.6;
             font-size: 0.95em;
         }
 
-        /* Projects Section */
-        .projects-section {
+        /* Core Strengths Section */
+        .strengths-section {
             padding: 100px 40px;
-            background: white;
+            background: #f8f9fa;
         }
 
-        .projects-title {
+        .strengths-title {
             text-align: center;
             font-size: 2.5em;
             font-weight: 300;
@@ -177,90 +210,75 @@
             letter-spacing: 1px;
         }
 
-        .project-card {
-            background: #f8f9fa;
+        .strengths-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
             border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 40px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
         }
 
-        .project-card:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        .strength-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
         }
 
-        .project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
+        .strength-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        .project-header h3 {
-            font-size: 1.8em;
-            font-weight: 300;
+        .strength-item h4 {
+            color: #667eea;
+            font-size: 1.1em;
             margin-bottom: 10px;
-            letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
-        .project-header p {
-            font-size: 0.95em;
-            opacity: 0.95;
-        }
-
-        .project-content {
-            padding: 40px;
-        }
-
-        .project-content p {
+        .strength-item p {
             color: #666;
             line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .experience-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .experience-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            text-align: center;
+        }
+
+        .experience-card h3 {
+            font-size: 2em;
+            font-weight: 600;
             margin-bottom: 15px;
         }
 
-        /* Joke Generator Showcase */
-        .joke-showcase {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .joke-showcase h4 {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .joke-box-showcase {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 3px solid white;
-        }
-
-        .joke-box-showcase p {
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        .joke-link {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .joke-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .experience-card p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            opacity: 0.95;
         }
 
         /* Contact Section */
@@ -332,18 +350,29 @@
                 font-size: 1.8em;
             }
 
-            .services-grid {
+            .expertise-grid {
                 grid-template-columns: 1fr;
             }
 
-            .services-title,
-            .projects-title,
+            .about-title,
+            .expertise-title,
+            .strengths-title,
+            .experience-title,
             .contact-title {
                 font-size: 1.8em;
             }
 
+            .about-content,
+            .strengths-container {
+                padding: 30px;
+            }
+
             .contact-info {
                 gap: 30px;
+            }
+
+            .profile-title {
+                font-size: 1em;
             }
         }
     </style>
@@ -360,81 +389,138 @@
             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Ccircle cx='150' cy='80' r='40' fill='%23333'/%3E%3Cpath d='M 100 130 Q 100 150 150 160 Q 200 150 200 130' fill='%23333'/%3E%3Crect x='80' y='170' width='140' height='100' rx='20' fill='%23333' opacity='0.5'/%3E%3C/svg%3E" alt="Profile">
         </div>
         <div class="profile-info">
-            <h2 class="profile-name"><span>Inhwa</span> Ju</h2>
-            <p class="profile-title">LX글라스 | Senior Business Development & Pre-Sales Manager</p>
-            <div class="profile-badge">✓ 인증 아이콘 추가</div>
+            <h2 class="profile-name"><span>주인화</span> (Inhwa Ju)</h2>
+            <p class="profile-title">Senior Business Development & Pre-Sales Manager | LX Glass (formerly HANGLAS)</p>
+            <div class="profile-badge">✓ 건축자재 산업 23년 경력</div>
             <p class="profile-description">
-                Korea Market Entry & Go-to-Market Strategy | Architectural Glass, Façade & Building Materials | Technical Sales | Specification Sales | Marketing & Market Analysis
+                건축용 건물 외장재 산업에서 23년 이상의 경험을 보유한 시니어 비즈니스 개발 및 영업 담당자입니다. 
+                기술 전문성, 신뢰, 그리고 장기적 파트너십을 기반으로 지속 가능한 비즈니스 성장을 이끌어가고 있습니다.
             </p>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section">
-        <h2 class="services-title">Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Market Entry Strategy</h3>
-                <p>Specialized in Korea market entry and go-to-market strategies for architectural glass and building materials.</p>
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="about-title">나에 대해서</h2>
+        <div class="about-content">
+            <p>
+                LX Glass(구 한글라스)에서의 경력을 통해 건축사, 개발사, 시공사, 파사드 컨설턴트, 창 제조사 등 다양한 고객이 한국의 
+                랜드마크 상업용, 주거용, 호텔, 복합용도 건설 프로젝트에서 혁신적이고 고성능의 건물 외장재 솔루션을 제공할 수 있도록 
+                지원했습니다.
+            </p>
+            
+            <p>
+                저의 전문성은 기술 영업을 넘어 기술과 비즈니스를 연결하는 데 있습니다. 시장 기회 발굴, 전략적 파트너십 구축, 
+                설계 초기 단계부터 프로젝트 완료까지 고객을 위한 장기적 가치 창출에 집중합니다.
+            </p>
+
+            <p>
+                글로벌 제조사의 한국 건설시장 진입 및 사업 확대를 지원하는 것이 저의 핵심 강점입니다. 건축자재의 기술적 측면뿐만 아니라 
+                한국의 지역 시장, 의사결정 프로세스, 산업 네트워크, 규격 관행을 이해하고 있어 한국 시장에서의 지속 가능한 비즈니스 성장을 
+                달성할 수 있습니다.
+            </p>
+
+            <p>
+                국제 외장재 및 내장재 혁신 제품 평가 및 상용화 전략 개발, 시장 진입 계획, 시장진출 전략(GTM) 실행, 기술 포지셔닝, 
+                규격 개발, 고객 참여 및 비즈니스 확대 등 광범위한 경험을 보유하고 있습니다.
+            </p>
+
+            <p>
+                성공적인 비즈니스 개발은 기술 전문성, 신뢰, 그리고 장기적 파트너십으로 이루어진다고 믿습니다.
+            </p>
+
+            <p>
+                한국 내 기회를 모색하는 글로벌 기업과의 협업을 즐기며, 지속 가능한 건축과 고급 건축 기술의 미래를 형성하는 프로젝트에 
+                기여하고 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <h2 class="expertise-title">주요 전문 분야</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h3>한국 시장 진출 전략</h3>
+                <p>글로벌 건축자재 제조사의 한국 시장 진입 및 GTM 전략 개발, 시장 분석 및 실행 관리</p>
             </div>
-            <div class="service-card">
-                <h3>Technical Sales</h3>
-                <p>Expert in technical sales and specification guidance for architectural façade solutions and building materials.</p>
+            <div class="expertise-card">
+                <h3>기술 영업 & 규격</h3>
+                <p>건축 파사드 솔루션 및 건축자재의 기술 영업, 규격 개발, 기술 지원 및 컨설팅</p>
             </div>
-            <div class="service-card">
-                <h3>Business Development</h3>
-                <p>Driving business growth through strategic partnerships and market expansion in the architectural sector.</p>
+            <div class="expertise-card">
+                <h3>비즈니스 개발</h3>
+                <p>전략적 파트너십 구축, 시장 기회 발굴, 고객 관계 관리 및 사업 확대</p>
+            </div>
+            <div class="expertise-card">
+                <h3>제품 상용화</h3>
+                <p>혁신 국제 건축자재 평가, 시장 포지셔닝, 고객 참여 및 사업화 전략 개발</p>
+            </div>
+            <div class="expertise-card">
+                <h3>건축자재 산업 네트워크</h3>
+                <p>한국 건설 산업의 깊은 이해, 의사결정 프로세스, 산업 네트워크 및 규격 관행</p>
+            </div>
+            <div class="expertise-card">
+                <h3>건축 솔루션 관리</h3>
+                <p>건축사, 개발사, 시공사, 파사드 컨설턴트와의 협력을 통한 통합 솔루션 제공</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects-section">
-        <h2 class="projects-title">Projects</h2>
-        
-        <div class="project-card">
-            <div class="project-header">
-                <h3>Random Joke Generator</h3>
-                <p>Interactive web application using JokeAPI</p>
+    <!-- Core Strengths Section -->
+    <section class="strengths-section">
+        <h2 class="strengths-title">핵심 강점</h2>
+        <div class="strengths-container">
+            <div class="strength-item">
+                <h4>🌍 글로벌 제조사의 한국 시장 진입 전문가</h4>
+                <p>한국의 건설 시장, 의사결정 프로세스, 산업 네트워크를 깊이 있게 이해하고 있으며, 글로벌 기업의 성공적인 시장 진입과 
+                지속 가능한 성장을 지원합니다.</p>
             </div>
-            <div class="project-content">
-                <p>A beautiful and modern joke generator web application built with vanilla JavaScript and external API integration. Features real-time loading states, responsive design, and clipboard functionality.</p>
-                
-                <div class="joke-showcase">
-                    <h4>Features:</h4>
-                    <div class="joke-box-showcase">
-                        <p>✨ Random joke generation</p>
-                    </div>
-                    <div class="joke-box-showcase">
-                        <p>📋 Copy to clipboard functionality</p>
-                    </div>
-                    <div class="joke-box-showcase">
-                        <p>📱 Fully responsive design</p>
-                    </div>
-                    <div class="joke-box-showcase">
-                        <p>⚡ Real-time loading states</p>
-                    </div>
-                    <a href="joke-generator.html" class="joke-link">Try Generator →</a>
-                </div>
+            <div class="strength-item">
+                <h4>🔧 기술과 비즈니스의 완벽한 연결</h4>
+                <p>건축자재의 기술적 우수성을 시장 기회로 전환하고, 전략적 파트너십을 통해 고객에게 실질적 가치를 제공합니다.</p>
             </div>
+            <div class="strength-item">
+                <h4>🤝 신뢰 기반의 장기적 파트너십</h4>
+                <p>기술 전문성과 시장 이해를 바탕으로 설계 단계부터 프로젝트 완료까지 고객과 함께 성장하는 진정한 파트너입니다.</p>
+            </div>
+            <div class="strength-item">
+                <h4>📊 혁신 제품 평가 및 상용화 전략</h4>
+                <p>국제적 혁신 건축자재를 평가하고 한국 시장에 맞는 상용화 전략을 개발하여 신규 사업 기회를 창출합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <h2 class="experience-title">경력 사항</h2>
+        <div class="experience-card">
+            <h3>23년 이상의 경험</h3>
+            <p>
+                건축용 건물 외장재 산업에서 다양한 프로젝트와 고객과의 협력을 통해 
+                기술, 시장, 비즈니스 개발의 모든 분야에서 깊은 전문성을 갖추었습니다.
+            </p>
+            <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">
+                LX Glass (formerly HANGLAS) | Senior Business Development & Pre-Sales Manager
+            </p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section">
-        <h2 class="contact-title">Get In Touch</h2>
+        <h2 class="contact-title">연락처</h2>
         <div class="contact-info">
             <div class="contact-item">
-                <h4>Email</h4>
+                <h4>✉️ 이메일</h4>
                 <p>inhwaju@gmail.com</p>
             </div>
             <div class="contact-item">
-                <h4>Location</h4>
-                <p>Korea</p>
+                <h4>📍 위치</h4>
+                <p>대한민국</p>
             </div>
             <div class="contact-item">
-                <h4>LinkedIn</h4>
-                <p>Connect with me</p>
+                <h4>🔗 연결</h4>
+                <p>LinkedIn / Contact</p>
             </div>
         </div>
     </section>
@@ -443,5 +529,20 @@
     <footer>
         <p>&copy; 2026 Inhwa Ju. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for better user experience
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
