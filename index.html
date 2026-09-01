@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inhwa Ju - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* AUTONO Header Section */
+        .header {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgb(200,200,200);stop-opacity:1" /><stop offset="100%" style="stop-color:rgb(100,100,100);stop-opacity:1" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23grad)"/><rect y="300" width="1200" height="80" fill="%23333"/><line x1="0" y1="380" x2="1200" y2="380" stroke="white" stroke-width="3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(100,150,200,0.2) 0%, rgba(60,100,160,0.3) 100%);
+        }
+
+        .header h1 {
+            font-size: 4em;
+            font-weight: 300;
+            letter-spacing: 8px;
+            color: white;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            background: white;
+            gap: 60px;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .profile-name {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .profile-name span {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .profile-title {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .profile-description {
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 40px;
+            background: #f8f9fa;
+        }
+
+        .services-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .projects-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+        }
+
+        .project-header h3 {
+            font-size: 1.8em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .project-header p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Joke Generator Showcase */
+        .joke-showcase {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .joke-showcase h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .joke-box-showcase {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 3px solid white;
+        }
+
+        .joke-box-showcase p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .joke-link {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .joke-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 40px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+                letter-spacing: 4px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+
+            .profile-image img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile-name {
+                font-size: 1.8em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-title,
+            .projects-title,
+            .contact-title {
+                font-size: 1.8em;
+            }
+
+            .contact-info {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- AUTONO Style Header -->
+    <div class="header">
+        <h1>AUTONO</h1>
+    </div>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Ccircle cx='150' cy='80' r='40' fill='%23333'/%3E%3Cpath d='M 100 130 Q 100 150 150 160 Q 200 150 200 130' fill='%23333'/%3E%3Crect x='80' y='170' width='140' height='100' rx='20' fill='%23333' opacity='0.5'/%3E%3C/svg%3E" alt="Profile">
+        </div>
+        <div class="profile-info">
+            <h2 class="profile-name"><span>Inhwa</span> Ju</h2>
+            <p class="profile-title">LX글라스 | Senior Business Development & Pre-Sales Manager</p>
+            <div class="profile-badge">✓ 인증 아이콘 추가</div>
+            <p class="profile-description">
+                Korea Market Entry & Go-to-Market Strategy | Architectural Glass, Façade & Building Materials | Technical Sales | Specification Sales | Marketing & Market Analysis
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="services-title">Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Market Entry Strategy</h3>
+                <p>Specialized in Korea market entry and go-to-market strategies for architectural glass and building materials.</p>
+            </div>
+            <div class="service-card">
+                <h3>Technical Sales</h3>
+                <p>Expert in technical sales and specification guidance for architectural façade solutions and building materials.</p>
+            </div>
+            <div class="service-card">
+                <h3>Business Development</h3>
+                <p>Driving business growth through strategic partnerships and market expansion in the architectural sector.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <h2 class="projects-title">Projects</h2>
+        
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Random Joke Generator</h3>
+                <p>Interactive web application using JokeAPI</p>
+            </div>
+            <div class="project-content">
+                <p>A beautiful and modern joke generator web application built with vanilla JavaScript and external API integration. Features real-time loading states, responsive design, and clipboard functionality.</p>
+                
+                <div class="joke-showcase">
+                    <h4>Features:</h4>
+                    <div class="joke-box-showcase">
+                        <p>✨ Random joke generation</p>
+                    </div>
+                    <div class="joke-box-showcase">
+                        <p>📋 Copy to clipboard functionality</p>
+                    </div>
+                    <div class="joke-box-showcase">
+                        <p>📱 Fully responsive design</p>
+                    </div>
+                    <div class="joke-box-showcase">
+                        <p>⚡ Real-time loading states</p>
+                    </div>
+                    <a href="joke-generator.html" class="joke-link">Try Generator →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 class="contact-title">Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p>inhwaju@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>Korea</p>
+            </div>
+            <div class="contact-item">
+                <h4>LinkedIn</h4>
+                <p>Connect with me</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Inhwa Ju. All rights reserved.</p>
+    </footer>
+</body>
+</html>
